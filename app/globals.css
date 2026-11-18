@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-zinc-950 font-sans text-zinc-100 antialiased;
+    background-image: radial-gradient(1200px 600px at 15% -10%, rgba(124, 58, 237, 0.14), transparent 60%),
+      radial-gradient(900px 500px at 100% 0, rgba(79, 70, 229, 0.1), transparent 55%);
+    background-attachment: fixed;
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  select:focus-visible,
+  summary:focus-visible,
+  input[type="checkbox"]:focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+  }
+}
+
+/* ================= Landing hero: swordswoman ================= */
+
+/* whole figure: slow breath, anchored at the feet */
+.hero-breathe {
+  transform-origin: 50% 100%;
+  animation: hero-breathe 5.2s ease-in-out infinite;
+}
+@keyframes hero-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-3px) scaleY(1.008);
+  }
+}
+
+/* hair layer: the wind filter does the rippling; a tiny sway adds weight */
+.hero-hair {
+  animation: hero-hair 6.5s ease-in-out infinite;
+}
+@keyframes hero-hair {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(1.5px);
+  }
+}
+
+/* blade: breathing glow + a light that travels down the steel */
+.blade-pulse {
+  animation: blade-pulse 3.6s ease-in-out infinite;
+}
+@keyframes blade-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+.blade-shimmer {
+  stroke-dasharray: 46 420;
+  animation: blade-shimmer 4.2s ease-in-out infinite;
+}
+.blade-shimmer-b {
+  stroke-dasharray: 20 160;
+  animation-duration: 5.4s;
+  animation-delay: 1.6s;
+}
+@keyframes blade-shimmer {
+  0% {
+    stroke-dashoffset: 60;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  70%,
+  100% {
+    stroke-dashoffset: -400;
+    opacity: 0;
+  }
+}
+
+/* water rings spreading from where she stands */
+.ripple {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: ripple 6s ease-out infinite;
+}
+.ripple-2 {
+  animation-delay: 2s;
+}
+.ripple-3 {
+  animation-delay: 4s;
+}
+@keyframes ripple {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+/* drifting motes + wind wisps: the air is moving */
+.mote {
+  animation: mote 9s ease-in-out infinite;
+}
+@keyframes mote {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(26px, -90px);
+    opacity: 0;
+  }
+}
+.wisp {
+  animation: wisp 11s ease-in-out infinite;
+}
+@keyframes wisp {
+  0% {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  30%,
+  60% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+}
+
+/* ================= Night sky: moon + Andromeda ================= */
+
+.star-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+/* galaxies don't visibly rotate: just a faint scintillation */
+.galaxy-breathe {
+  animation: galaxy-breathe 18s ease-in-out infinite;
+}
+@keyframes galaxy-breathe {
+  0%,
+  100% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.moon-glow {
+  animation: moon-glow 8s ease-in-out infinite;
+}
+@keyframes moon-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+.mist-drift {
+  animation: mist-drift 40s linear infinite alternate;
+}
+@keyframes mist-drift {
+  from {
+    transform: translateX(-40px);
+  }
+  to {
+    transform: translateX(40px);
+  }
+}
+/* tapered streak that glides from upper-left toward the galaxy, every ~14s */
+.shooting-star {
+  opacity: 0;
+  animation: shooting-star 14s ease-in infinite;
+  animation-delay: 5s;
+}
+@keyframes shooting-star {
+  0%,
+  92% {
+    transform: translate(260px, 120px);
+    opacity: 0;
+  }
+  93% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(560px, 270px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-breathe,
+  .hero-hair,
+  .blade-pulse,
+  .blade-shimmer,
+  .ripple,
+  .mote,
+  .wisp,
+  .star-twinkle,
+  .galaxy-breathe,
+  .moon-glow,
+  .mist-drift,
+  .shooting-star {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Range sliders: dark track, violet (accent-violet-500) thumb, 20px touch target, no scroll fight. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: #27272a;
+  touch-action: pan-y;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 9999px;
+  background: #8b5cf6;
+  border: 2px solid #09090b;
+  box-shadow: 0 0 0 1px #a78bfa;
+  transition: transform 150ms ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background: #8b5cf6;
+  border: 2px solid #09090b;
+  box-shadow: 0 0 0 1px #a78bfa;
+}
+input[type="range"]:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 4px;
+}
+input[type="range"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-zinc-800/80 bg-zinc-900/60 backdrop-blur-xl;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-200 ease-in-out hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-b from-violet-500 to-violet-600 text-white shadow-lg shadow-violet-900/30 hover:from-violet-400 hover:to-violet-500;
+  }
+  .btn-light {
+    @apply btn bg-zinc-100 text-zinc-900 hover:bg-white;
+  }
+  .btn-ghost {
+    @apply btn border border-zinc-800 bg-zinc-900/60 text-zinc-300 hover:border-zinc-700 hover:text-white;
+  }
+  .field {
+    @apply w-full rounded-xl border border-zinc-800 bg-zinc-950/70 px-3 py-2.5 text-sm text-zinc-100 outline-none transition-all duration-200 placeholder:text-zinc-500 focus:border-violet-500/70 focus:ring-2 focus:ring-violet-500/20 disabled:opacity-40;
+  }
+}
