@@ -77,18 +77,22 @@ export default function DashboardPage() {
         </p>
       )}
 
+      {/* Phones: countdown → GPA projector → courses → today's focus. Wider screens keep focus beside the countdown. */}
       <div className="mb-6 grid gap-4 md:grid-cols-[1fr_280px]">
-        <FocusCard courses={levelCourses} />
+        <div className="hidden md:block">
+          <FocusCard courses={levelCourses} />
+        </div>
         <ExamCountdown />
       </div>
 
-      {levelCourses.some((c) => c.quiz_1 !== null || c.final_score !== null || c.current_gaa > 0 || c.weekly_scores.some((w) => w !== null)) ? (
+      {levelCourses.length === 0 ||
+      levelCourses.some((c) => c.quiz_1 !== null || c.final_score !== null || c.current_gaa > 0 || c.weekly_scores.some((w) => w !== null)) ? (
         <TermProjector courses={levelCourses} />
-      ) : levelCourses.length > 0 ? (
+      ) : (
         <p className="card mb-6 p-5 text-sm text-zinc-400">
           Open a course and enter your marks — your Term GPA projection appears here once there&apos;s something to project.
         </p>
-      ) : null}
+      )}
 
       <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
         {/* ---------- Left panel ---------- */}
@@ -203,6 +207,12 @@ export default function DashboardPage() {
                   }}
                 />
               ))}
+            </div>
+          )}
+          {/* phones only: today's focus sits below the courses so a new student isn't greeted by an empty card */}
+          {levelCourses.length > 0 && (
+            <div className="mt-6 md:hidden">
+              <FocusCard courses={levelCourses} />
             </div>
           )}
           {courses.length > 0 && (
