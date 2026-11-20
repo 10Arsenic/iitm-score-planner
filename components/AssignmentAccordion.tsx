@@ -42,7 +42,7 @@ export default function AssignmentAccordion({ weekly, onChange, mode, result, de
         </span>
         <span className="flex items-center gap-3">
           <span className="text-sm text-zinc-400">
-            Avg <span className="text-xl font-bold tabular-nums text-zinc-50">{result.gaa.toFixed(1)}</span>
+            GAA <span className="text-xl font-bold tabular-nums text-zinc-50">{result.gaa.toFixed(1)}</span>
           </span>
           <span className={`text-zinc-400 transition-transform ${open ? "rotate-180" : ""}`} aria-hidden>
             ▾

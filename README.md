@@ -28,7 +28,9 @@ T = max(0.6·F + 0.3·max(Q1, Q2),  0.45·F + 0.25·Q1 + 0.3·Q2) + Bonus   (bon
 - To write the Final: average ≥ 40 on the best 5 of the first 7 weekly assignments, and attend at least one of the two quizzes.
 - Weekly assignments do not add marks to T.
 - Grade cut-offs on T: S ≥ 90, A ≥ 80, B ≥ 70, C ≥ 60, D ≥ 50, E ≥ 40.
-- Assumed (not in the document): at least 40/100 on the Final to pass, and equal credits and S10/A9/B8/C7/D6/E4 grade points for the term GPA.
+- At least 40/100 on the Final is needed to pass (confirmed).
+- Assumed (not in the document): equal credits and S10/A9/B8/C7/D6/E4 grade points for the term GPA.
+- The assignment average (GAA) is the average of the best 5 of the first 7 weeks. It only decides whether you can write the Final; it adds no marks to T.
 
 ## Run locally
 
@@ -57,7 +59,7 @@ The repository is connected to Vercel; every push to `main` redeploys automatica
 
 ## Checklist before sharing widely
 
-- [ ] Confirm the 40-mark minimum on the Final, the term GPA grade points, and whether other courses use a different formula.
+- [ ] Confirm the term GPA grade points, and whether other courses use a different formula.
 - [ ] Replace `public/hero/poster.webp` with artwork you own or have permission to use (see `public/hero/README.txt`).
 - [ ] Keep the "not affiliated with IIT Madras" disclaimer; don't use IITM logos.
 

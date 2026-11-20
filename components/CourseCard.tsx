@@ -27,7 +27,7 @@ export default function CourseCard({ course, onRemove }: { course: StudentCourse
       </div>
 
       <dl className="grid grid-cols-4 gap-2 text-center">
-        <Metric label="Assign." value={ev.anyWeekEntered ? ev.inputs.gaa.toFixed(1) : "—"} />
+        <Metric label="GAA" value={ev.anyWeekEntered ? ev.inputs.gaa.toFixed(1) : "—"} />
         <Metric label="Q1" value={show(course.quiz_1)} />
         <Metric label="Q2" value={course.is_q2_skipped ? "Skip" : show(course.quiz_2)} />
         <Metric label="Final" value={show(course.final_score)} />

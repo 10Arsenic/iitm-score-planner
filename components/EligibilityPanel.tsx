@@ -21,7 +21,7 @@ export default function EligibilityPanel({ assignments, quizzes }: { assignments
       <ul className="mt-2 divide-y divide-zinc-800/80">
         <li className="flex items-center justify-between gap-3 py-2.5">
           <div>
-            <p className="text-sm font-medium text-zinc-200">Assignments</p>
+            <p className="text-sm font-medium text-zinc-200">GAA (weekly assignments)</p>
             <p className="text-[13px] text-zinc-400">
               best {b.best} of first {b.ofFirst} weeks · avg <span className="tabular-nums text-zinc-300">{assignments.avg.toFixed(1)}</span> / need{" "}
               {assignments.min}
@@ -39,8 +39,7 @@ export default function EligibilityPanel({ assignments, quizzes }: { assignments
         </li>
       </ul>
       <p className="mt-2 text-[13px] text-zinc-400">
-        You must also attend the in-person end-term exam to get a grade. We assume at least {RULES.finalMinToPass}/100 on the Final is needed to pass —
-        confirm that in your course document.
+        You must also attend the in-person end-term exam to get a grade, and score at least {RULES.finalMinToPass}/100 on it to pass.
       </p>
     </section>
   );

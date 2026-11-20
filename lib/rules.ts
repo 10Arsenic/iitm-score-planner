@@ -4,7 +4,7 @@
  * to sit the Final you need an average >= 40 on the best 5 of the first 7 weekly
  * assignments AND at least one of the two quizzes attended.
  *
- * Still to confirm against the document: the 40-mark floor on the Final, and
+ * Confirmed: at least 40 on the Final is needed to pass. Still to confirm:
  * grade points / equal credits (used only by the term GPA projector).
  */
 export const RULES = {

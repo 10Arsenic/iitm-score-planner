@@ -22,3 +22,6 @@ npm-debug.log*
 
 # local editor/tool settings
 .claude/
+
+# promo assets (not part of the site)
+promo/
